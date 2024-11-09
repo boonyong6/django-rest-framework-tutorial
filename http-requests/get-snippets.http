@@ -3,3 +3,12 @@ GET {{baseUrl}}/snippets/
 ###
 
 GET {{baseUrl}}/snippets/2
+
+###
+
+GET {{baseUrl}}/snippets/
+Accept: text/html
+
+###
+
+GET {{baseUrl}}/snippets/.json

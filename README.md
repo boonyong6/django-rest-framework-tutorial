@@ -31,8 +31,10 @@
 
   # Save to database
   serializer = SnippetSerializer(data=data)
-  serializer.is_valid()  # Check with validation flags.
-  serializer.validated_data  # Similar to `cleaned_data` of Django `Form`. (Must call `is_valid()` first)
+  # Check with validation flags.
+  serializer.is_valid()
+  # Similar to `cleaned_data` of Django `Form`. (Must call `is_valid()` first)
+  serializer.validated_data
   serializer.save()
 
   # To inspect all the fields in a serializer instance.
@@ -41,3 +43,36 @@
   ```
 
 - In summary, serializer is the **key component** in Django REST framework.
+
+## Tutorial 2: Requests and Responses
+
+### Request objects
+
+- Introduce a `Request` object that extends the regular `HttpRequest`.
+
+  ```py
+  request.POST  # Only handles form data. Only works for 'POST' method.
+  request.data  # Handles arbitrary data. Works for 'POST', 'PUT', and 'PATCH' methods.
+  ```
+
+### Response objects
+
+- Introduce a `Response` object (type of `TemplateResponse`). It uses content negotiation to determine the content type.
+
+  ```py
+  return Response(data)  # Renders to content type as requested by the client.
+  ```
+
+### Wrapping API views
+
+- Provides two wrappers for API views
+  1. `@api_view` - function-based views.
+  2. `APIView` - class-based views.
+- To receive `Request` instances in your view.
+- Adding context to `Response` objects. (Content negotiation)
+- Handle `405 Method Not Allowed`.
+- Handle `ParseError` when accessing `request.data` with malformed input.
+
+### Pulling it all together
+
+- No longer explicitly tying our requests or responses to given content type. `Request` and `Response` objects will handle the content type for us.
