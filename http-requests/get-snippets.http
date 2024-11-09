@@ -12,3 +12,8 @@ Accept: text/html
 ###
 
 GET {{baseUrl}}/snippets/.json
+
+###
+
+# Non-existent resource.
+GET {{baseUrl}}/snippets/666
