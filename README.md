@@ -84,3 +84,4 @@
 - Advantage of using class-based views.
 - For CRUD operations.
 - `GenericAPIView` provide the core functionality and mixins to provide actions.
+- Provides a set of already mixed-in generic views.
