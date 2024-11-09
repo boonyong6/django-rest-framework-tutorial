@@ -1,0 +1,5 @@
+GET {{baseUrl}}/snippets/
+
+###
+
+GET {{baseUrl}}/snippets/2
