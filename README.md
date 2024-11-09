@@ -76,3 +76,11 @@
 ### Pulling it all together
 
 - No longer explicitly tying our requests or responses to given content type. `Request` and `Response` objects will handle the content type for us.
+
+## Tutorial 3: Class-based Views
+
+### Using mixins
+
+- Advantage of using class-based views.
+- For CRUD operations.
+- `GenericAPIView` provide the core functionality and mixins to provide actions.
