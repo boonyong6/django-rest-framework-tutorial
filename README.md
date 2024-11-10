@@ -102,3 +102,20 @@
 - Set up [authentication classes](https://www.django-rest-framework.org/api-guide/authentication/) for authentication scheme.
 - Default authentication scheme - `SessionAuthentication` and `BasicAuthentication`.
 
+## Tutorial 5: Relationships & Hyperlinked APIs
+
+- Improve the cohesion of our API by using **hyperlinking** for the relationships.
+- Provides 2 styles of HTML renderers
+  1. With template
+  2. With pre-rendered HTML
+
+### Hyperlinking our API
+
+- Ways to represent a relationship:
+  - PK
+  - \*Hyperlink - Use `HyperlinkedModelSerializer`
+  - Slug
+  - String representation
+  - Embedded related entity
+  - Custom
+- Requirement: Name url patterns

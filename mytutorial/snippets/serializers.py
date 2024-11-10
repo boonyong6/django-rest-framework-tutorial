@@ -3,22 +3,35 @@ from rest_framework import serializers
 from .models import Snippet
 
 
-class SnippetSerializer(serializers.ModelSerializer):
+class SnippetSerializer(serializers.HyperlinkedModelSerializer):
     # `source` argument controls which attribute is used to populate a field.
     # Alternative: `CharField(read_only=True)`
     owner = serializers.ReadOnlyField(source="owner.username")
+    highlight = serializers.HyperlinkedIdentityField(
+        view_name="snippet-highlight", format="html"
+    )
 
     class Meta:
         model = Snippet
-        fields = ["id", "title", "code", "linenos", "language", "style", "owner"]
+        fields = [
+            "url",
+            "id",
+            "highlight",
+            "title",
+            "code",
+            "linenos",
+            "language",
+            "style",
+            "owner",
+        ]
 
 
-class UserSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.HyperlinkedModelSerializer):
     # Reverse relationship will not be included by default.
-    snippets = serializers.PrimaryKeyRelatedField(
-        many=True, queryset=Snippet.objects.all()
+    snippets = serializers.HyperlinkedRelatedField(
+        many=True, read_only=True, view_name="snippet-detail"
     )
 
     class Meta:
         model = User
-        fields = ["id", "username", "snippets"]
+        fields = ["url", "id", "username", "snippets"]
