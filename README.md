@@ -85,3 +85,20 @@
 - For CRUD operations.
 - `GenericAPIView` provide the core functionality and mixins to provide actions.
 - Provides a set of already mixed-in generic views.
+
+## Tutorial 4: Authentication & Permissions
+
+- resource owner, authenticated actions, read-only for unauthenticated users
+- Extract user id from the request and set the snippet owner. User id is not pass as part of the request body. To handle any info that is implicit in the incoming request.
+  - Override the view's `.perform_create()`.
+- REST framework includes **permission classes** to restrict the access of a given **view**.
+
+### Object level permissions
+
+- Create a **custom permission** to make sure that only the user that created a code snippet is able to update and delete it.
+
+### Authenticating with the API
+
+- Set up [authentication classes](https://www.django-rest-framework.org/api-guide/authentication/) for authentication scheme.
+- Default authentication scheme - `SessionAuthentication` and `BasicAuthentication`.
+

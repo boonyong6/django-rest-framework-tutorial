@@ -1,6 +1,7 @@
 POST {{baseUrl}}/snippets/
 Content-Type: application/json
+Authorization: Basic admin:1006
 
 {
-    "code": "n = \"cool\""
+    "code": "message = \"Hello World\""
 }

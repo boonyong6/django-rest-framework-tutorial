@@ -1,1 +1,2 @@
-DELETE {{baseUrl}}/snippets/5/
+DELETE {{baseUrl}}/snippets/3/
+Authorization: Basic admin:1006
