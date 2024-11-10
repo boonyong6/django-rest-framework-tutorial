@@ -119,3 +119,12 @@
   - Embedded related entity
   - Custom
 - Requirement: Name url patterns
+
+## Tutorial 6: ViewSets & Routers
+
+- Includes an **abstraction** for dealing with `ViewSets`.
+  - Handle **URL construction** automatically based on common conventions.
+- `ViewSet` is similar to `View` except it provide operations such as `retrieve` or `update` instead of method handlers such as `get` or `put`.
+  - Only bound to method handlers at the last moment, when it is instantiated into views, by using a `Router` class.
+- `ModelViewSet` provides default read and write operations.
+- URLs for custom actions by default depend on the method name itself.
