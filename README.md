@@ -128,3 +128,6 @@
   - Only bound to method handlers at the last moment, when it is instantiated into views, by using a `Router` class.
 - `ModelViewSet` provides default read and write operations.
 - URLs for custom actions by default depend on the method name itself.
+- Register view sets with a router.
+- `DefaultRouter` automatically creates the API root view.
+- `ViewSets` help ensure that URL conventions will be consistent across API.
